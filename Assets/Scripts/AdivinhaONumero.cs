@@ -5,6 +5,10 @@ using UnityEngine;
 public class AdivinhaONumero : MonoBehaviour
 {
 
+    [SerializeField] int minimoNoInicio = 1;
+    [SerializeField] int maximoNoInicio = 1;
+
+
     int minimo; //declaração da variável
     int maximo; //declaração de variável
     int valorAAdivinhar;
@@ -17,25 +21,7 @@ public class AdivinhaONumero : MonoBehaviour
          * onde estou a explicar para que é que serve
          * o código abaixo
          */
-
-        minimo = 1;   //este é o valor minimo do jogo
-        maximo = 100; //este é o valor máximo do jogo
-        valorAAdivinhar = (minimo + maximo) / 2;
-
-        /*
-         * Operadores matemáticos
-         * + Soma
-         * - Subtracção
-         * * Multiplicação
-         * / Divisão
-         * % Resto da divisão inteira
-         */
-
-        Debug.Log("Olá, vamos jogar um jogo!");
-        Debug.Log("Eu vou tentar adivinhar o número em que pensas");
-        Debug.Log("Pensa então num número entre " + minimo + " e " + maximo);
-
-        CalculaEImprime();
+        IniciaJogo();
     }
 
 
@@ -63,13 +49,14 @@ public class AdivinhaONumero : MonoBehaviour
         {
             //Código a executar se o jogador pressionar o Enter
             Debug.Log("Viste como eu sou um génio?!");
+            IniciaJogo();
         }
     }
 
     void CalculaEImprime()
     {
 
-        valorAAdivinhar = (minimo + maximo) / 2;
+        valorAAdivinhar = Random.Range(minimo, maximo);
 
         Debug.Log("Eu acho que o número em que pensaste é " + valorAAdivinhar);
 
@@ -80,5 +67,19 @@ public class AdivinhaONumero : MonoBehaviour
 
 
 
+    }
+
+    void IniciaJogo()
+    {
+
+        minimo = minimoNoInicio;   //este é o valor minimo do jogo
+        maximo = maximoNoInicio; //este é o valor máximo do jogo
+        valorAAdivinhar = (minimo + maximo) / 2;
+
+        Debug.Log("Olá, vamos jogar um jogo!");
+        Debug.Log("Eu vou tentar adivinhar o número em que pensas");
+        Debug.Log("Pensa então num número entre " + minimo + " e " + maximo);
+
+        CalculaEImprime();
     }
 }
