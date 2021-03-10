@@ -54,6 +54,7 @@ public class AdivinhaONumero : MonoBehaviour
 
             minimo = valorAAdivinhar;
             valorAAdivinhar = (minimo + maximo) / 2;
+            Debug.Log("Eu acho que o número em que pensaste é " + valorAAdivinhar);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
